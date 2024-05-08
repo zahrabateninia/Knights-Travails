@@ -44,7 +44,16 @@ function knightMoves(start, end){
         const path = queue.shift();
         // get the last square of the path using destructuring assignment
         const [x, y] = path[path.length - 1] 
+        // the same as  : const lastSquare = path[path.length - 1]; const x = lastSquare[0]; const y = lastSquare[1]
+        // if the current square is the end square return path
+        if(x === end[0] && y === end[1]){
+            return path;
+        }
     }
 
 
 }
+
+
+// My Note
+// Destructuring assignment is a special syntax that allows us to “unpack” arrays or objects into a bunch of variables
