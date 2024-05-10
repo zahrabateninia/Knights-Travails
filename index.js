@@ -57,7 +57,10 @@ function knightMoves(start, end){
             if(newX >= 0 && newX < boardSize && newY>=0 && newY < boardSize && !visited[newX][newY]){
                 // mark the new square as visited
                 visited[newX][newY] = true;
-                
+                // enqueue the new path with the new square
+                queue.push([...path, [newX, newY]]);
+                // use the spread syntax (...) to create a new array. It concatenates the existing path array with the new square [newX, newY] at the end
+
             }
         }
         
