@@ -49,6 +49,18 @@ function knightMoves(start, end){
         if(x === end[0] && y === end[1]){
             return path;
         }
+        // if not, explore all the possible moves from that square
+        for(const [dx,dy] of moves){
+            let newX = x + dx;
+            let newY = y + dy;
+
+            if(newX >= 0 && newX < boardSize && newY>=0 && newY < boardSize && !visited[newX][newY]){
+                // mark the new square as visited
+                visited[newX][newY] = true;
+                
+            }
+        }
+        
     }
 
 
