@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 
+function displayPath(path){
+    console.log(`You made it in ${path.length - 1} moves! Here's your path:`);
+    for( const square in path){
+        console.log(`[${square[0]}, ${square[1]}]`);
+    }
+
+}
 // knightMoves() takes two square coordinates as input 
 function knightMoves(start, end){
     // possible moves for a knight
@@ -20,7 +27,7 @@ function knightMoves(start, end){
     const queue = [[start]]; 
 
     // create a 2D array
-    const visited = Array.from({ length: boardSize }, () => Array(boardSize).fill(false)); //?????????????????/
+    const visited = Array.from({ length: boardSize }, () => Array(boardSize).fill(false));
     // output of visited array for board size of 8 is : 
     // [
     //     [false, false, false, false, false, false, false, false],
@@ -42,12 +49,13 @@ function knightMoves(start, end){
     // iterate until the queue is empty
     while(queue.length > 0){
         const path = queue.shift();
+        // console.log(path)
         // get the last square of the path using destructuring assignment
         const [x, y] = path[path.length - 1] 
         // the same as  : const lastSquare = path[path.length - 1]; const x = lastSquare[0]; const y = lastSquare[1]
         // if the current square is the end square return path
         if(x === end[0] && y === end[1]){
-            return path;
+            return displayPath(path);
         }
         // if not, explore all the possible moves from that square
         for(const [dx,dy] of moves){
@@ -65,10 +73,12 @@ function knightMoves(start, end){
         }
         
     }
-
-
 }
 
+// Test Case
+
+const knightPaths = knightMoves([3, 3], [4, 3]);
+console.log(knightPaths)
 
 // My Note
 // Destructuring assignment is a special syntax that allows us to “unpack” arrays or objects into a bunch of variables
