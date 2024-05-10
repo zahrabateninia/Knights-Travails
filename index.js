@@ -2,7 +2,7 @@
 
 function displayPath(path){
     console.log(`You made it in ${path.length - 1} moves! Here's your path:`);
-    for( const square in path){
+    for( const square of path){
         console.log(`[${square[0]}, ${square[1]}]`);
     }
 
