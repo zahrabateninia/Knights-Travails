@@ -36,7 +36,7 @@ function knightMoves(start, end){
     visited[start[0]][start[1]] = true;
 
     while(queue.length > 0){
-        const path = queue.shift();
+        const path = queue.shift(); //dequeue the first element in the queue and store it in the path var
         // get the last square of the path using destructuring assignment
         const [x, y] = path[path.length - 1] 
         // the same as  : const lastSquare = path[path.length - 1]; const x = lastSquare[0]; const y = lastSquare[1]
@@ -69,3 +69,5 @@ console.log(knightPaths)
 
 // My Note
 // Destructuring assignment is a special syntax that allows us to “unpack” arrays or objects into a bunch of variables
+
+// Array.from(arrayLike, mapFn) mapFn is a function to call on every element of the array.
